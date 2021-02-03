@@ -10,15 +10,14 @@
 
 - SCM(Source Code Management): 코드 관리 
   - 프로그래밍 (소스)코드란? 컴퓨터에게 명령을 내리기 위한 글 
-  - 
-
+  
 - VCS(Version Control System): 버전 관리 시스템
 
 
 
 ## Git 명령어
 
-Git은 **폴더 단위**로 코드를 관리 
+Git은 **폴더 단위**로 코드를 관리
 
 
 
@@ -133,15 +132,39 @@ nothing to commit, working tree clean
 
 원격 저장소 정보를 출력
 
-- `git remote add [이름] [주소]
+- `git remote add [이름] [주소]`
   - `git remote add  origin https://github.com/Heyrin553/test.git`
-- `git remote -v`: verbode 모드
+- `git remote -v`: verbose 모드
 
 
 
 ### `git push [이름] [브랜치]`
 
 - git push origin master
+
+
+
+### `git rm --cached`
+
+스테이징에서 빼기 
+
+
+
+git clone [url]
+
+해당 프로젝트가 없을 때 그대로 복제해 오는 경우. 
+
+0개 -> 12개 
+
+
+
+git pull 
+
+- 차이를 가져오기 
+
+- `git pull origin master`
+
+
 
 ________
 

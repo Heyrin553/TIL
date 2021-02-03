@@ -50,8 +50,7 @@
   ```bash
   $ git remote add origin [github 원격 저장소 주소]
   $ git remote -v # verbose 모드 
-```
-  
+  ```
 
 
 
