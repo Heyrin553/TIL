@@ -238,7 +238,7 @@ class B extends A {
 
   > 상속은 변경의 의미도 포함함. 원래 클래스에서 정해놓은 배열 등을 마음대로 바꿔서 사용할 수 있음. 마음대로 변경하지 못하도록 제한하는 것. 
 
-- String 은 final 
+- String 클래스는 final 
 
 ```java
 package test.final_;
@@ -284,6 +284,138 @@ public class Test {
 ```
 
 - String은 파이널이기 때문에 상속이 불가능. 따라서 String의 주소를 출력하도록 만들 수 없음. 
+
+- final class 예시: Math(PI, E), String
+- final data 예시: Math.PI, Math.E (상수)
+- final method 예시: Object.getClass()
+
+
+
+#### (참고) 열거 타입
+
+- Java 프로그램 단위
+
+  - class (기본) 
+  - Enum(열거타입): 상수를 표현하는 프로그램 단위, 코드의 가독성을 높이기 위함.  
+
+  ```java
+  public class Week {
+  	    public static final char MON='월';
+  	    public static final char TUE='화';
+  	    public static final char WED='수';
+  	    public static final char THU='목';
+  	    public static final char FRI='금';
+  	    public static final char SAT='토';
+  	    public static final char SUN='일';
+  	        
+  	}
+  ```
+
+  ```java
+  public enum Week{
+      MON, 
+      TUE,
+      WED,
+      THU,
+      FRI,
+      SAT,
+      SUN
+  }
+  
+  /*
+  class Week{
+  	public static final String MON="MON";
+  }
+  */
+  ```
+
+  ```java
+  public class Test {
+  
+  	public static void main(String[] args) {
+  		System.out.println(Week.MON);
+  		System.out.println(Week.TUE);
+  	}
+  }
+  ```
+
+  >  MON, TUE 출력. 이름과 값을 똑같이 가짐
+
+  ```java
+  public class Test {
+  
+  	public static void main(String[] args) {
+  		Week o1=Week.MON;
+  		System.out.println(o1);
+  		Week o2=Week.TUE;
+  		System.out.println(o2);
+  	}
+  }
+  ```
+
+  > Week 도 하나의 객체로 취급됨을 알 수 있다. 
+
+
+
+### (3) Abstract 
+
+> 객체 생성 불가, 그러므로 상속으로만 사용하라. 
+>
+> class, method앞에 붙을 수 있음. (Data앞에는 사용 불가)
+
+1) class 앞: 객체 생성 불가 => 상속으로만 사용
+
+2) method 앞: 구현블록 없음
+
+- 메소드가 하나라도 abstract이면 클래스도 abstract이어야 함. 
+- 메소드에 구현해놓은 것이 없다는 것을 다른 개발자(사용자)가 알게 해서, 그 메소드를 사용하면 무언가 나온다는 **기대**를 안 하도록 사전에 알려주기 위해 메소드와 클래스를 abstract로 만드는 것. 
+- **오버라이딩을 위해 정의해놓은 템플릿 역할을 하는 메소드**에 행위를 기대하지 말라, 즉 호출하지 말라는 것. 
+
+```java
+package test.shape;
+
+public abstract class Shape {
+    public abstract void area(); //area()라는 메소드를 구현하지 않음. 구현은 하위 클래스에서 하도록
+}
+```
+
+```java
+package test.shape;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		Shape s=new Shape(); //컴파일 에러-객체 생성 못함
+		s.area();
+```
+
+- 에러 해결
+
+  ```java
+  package test.shape;
+  
+  public class Test {
+  
+  	public static void main(String[] args) {
+  		
+  		Circle c=new Circle();
+  		c.area();
+  		
+  		Shape s=new Circle(); //상속으로 사용 
+  		s.area();
+  ```
+
+  
+
+- method에 abstract이 없는데 class는 abstract인 경우 ?
+  - ex. Component 클래스 -new(객체화) 해서 쓰지 말라는 뜻. 상속으로만 사용하라는 뜻. 
+  - 모든 메소드가 구체적인데 왜 직접 객체화하면 안되나? 
+  - 모든 컴포넌트가 공통적으로 가지고 있어야 하는 구체적인 구현 내용은 있지만(동일한 전처리 과정을 거쳐야 하지만), 특정한 그 행위를 수행해야 하는 대상이 무엇인지 컴포넌트 형태로는 알 수 없기 때문.  
+
+
+
+
 
 
 
