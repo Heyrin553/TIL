@@ -38,7 +38,11 @@ public class Book {
 	}
 
 	public void setIsbn(String isbn) {
+		if (isbn.length() == 5) {
 		this.isbn = isbn;
+		} else {
+			System.out.println("도서 번호를 정확하게 입력해 주십시오");
+		}
 	}
 
 	public String getTitle() {
@@ -46,7 +50,13 @@ public class Book {
 	}
 
 	public void setTitle(String title) {
+		if(title != null) {
 		this.title = title;
+		} else {
+			System.out.println("도서 제목을 정확하게 입력해 주십시오");
+		}
+	
+		
 	}
 
 	public String getAuthor() {
@@ -54,7 +64,14 @@ public class Book {
 	}
 
 	public void setAuthor(String author) {
-		this.author = author;
+		if(author != null) {
+			this.author = author;
+			
+		}else {
+			System.out.println("저자명을 정확하게 입력해 주십시오");
+			
+		}
+		
 	}
 
 	public String getPublisher() {
@@ -62,7 +79,11 @@ public class Book {
 	}
 
 	public void setPublisher(String publisher) {
-		this.publisher = publisher;
+		if(publisher != null) {
+			this.publisher = publisher;
+			}else {
+				System.out.println("출판사명을 정확하게 입력해 주십시오");
+			}
 	}
 
 	public int getPrice() {
@@ -70,7 +91,12 @@ public class Book {
 	}
 
 	public void setPrice(int price) {
-		this.price = price;
+		if(price > 0) {
+			this.price = price;
+		}else {
+			System.out.println("가격을 정확하게 입력해 주십시오");
+		}
+		
 	}
 
 	public String getDesc() {
@@ -78,12 +104,17 @@ public class Book {
 	}
 
 	public void setDesc(String desc) {
+		if(desc == null) {
+			System.out.println(" ");
+		}else {
 		this.desc = desc;
+		}
 	}
 
 	
 	@Override
 	public String toString() {
-		return isbn+"  | "+title+"    | "+author+"     | "+publisher+"     | "+price+"     | "+desc;
+		System.out.println(this.isbn+"|"+this.title+"|"+this.author+"|"+this.publisher+"|"+this.price+"|"+this.desc);
+		return this.isbn+"|"+this.title+"|"+this.author+"|"+this.publisher+"|"+this.price+"|"+this.desc;
 	}
 }

@@ -11,7 +11,7 @@ public class Magazine {
 	String desc;
 	
 	public String toString() {
-		return isbn+"  | "+title+"  "+author+" | "+publisher+"     | "+price+desc+"| "+year+"."+month;
+		return isbn+"|"+title+"|"+author+"|"+publisher+"|"+price+"|"+desc+"|"+year+"."+month;
 		
 	}
 

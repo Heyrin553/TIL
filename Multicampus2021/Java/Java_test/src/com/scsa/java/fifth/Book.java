@@ -9,8 +9,9 @@ public class Book {
 	int price;
 	String desc;
 	
+	
 	public String toString() {
-		return isbn+"  | "+title+"    | "+author+"     | "+publisher+"     | "+price+desc;
+		return isbn+"|"+title+"|"+author+"|"+publisher+"|"+price+"|"+desc;
 		
 	}
 
