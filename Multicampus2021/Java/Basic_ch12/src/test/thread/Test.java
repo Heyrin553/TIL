@@ -12,13 +12,16 @@ public class Test {
 		th1.start();
 		th2.start();
 		}
-
+// 메인 포함 스레드 3개 - 메인은 데몬스레드, 프로세스 라고도 함 
 	}
 
-class A implements Runnable { // 실행 흐름을 나눔 
+class A extends Thread { // 실행 흐름을 나눔 
 	public void run() {
 		for(int i = 0; i<100; i++) {
-			System.out.println(i+"+1="+(i+1));
+			System.out.println(getName()+":"+i+"+1="+(i+1));
+			if(i == 50) {
+			
+			}
 		}		
 	}
 }
