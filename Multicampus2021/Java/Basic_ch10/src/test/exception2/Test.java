@@ -12,7 +12,7 @@ public class Test {
 			c.divide(50, 2);
 		} catch (MyException e) {
 			System.out.println(e.getMessage());
-		}finally {
+		}finally { 
 		System.out.println(result);
 		
 		System.out.println("중요한 일 시작");
