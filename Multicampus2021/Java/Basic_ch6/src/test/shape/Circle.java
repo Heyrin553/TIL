@@ -18,3 +18,4 @@ public class Circle extends Shape {
 		System.out.println("원의 넓이="+(3.14*radius*radius));
 	}
 }
+

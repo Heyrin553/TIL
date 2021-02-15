@@ -27,7 +27,7 @@ public class Triangle extends Shape {
 		}
 	}
 
-	public void area() {
+	public void area() { //재정의
 		System.out.println("삼각형의 넓이="+(w*h/2));
 	}
 
