@@ -25,6 +25,7 @@ public class Test {
 //		System.out.println(s7 == s8); // s7과 s8은 concat 메소드를 사용하면서 각각 인스턴스 영역에 생성되므로 false 
 		
 		String s9 = s3 + "1"; //변수에 "1"을 더하면 인스턴스 영역에 생성됨 
+		
 		String s10 = s4 + "1";
 		System.out.println(s9 == s10); // ?? 
 		
