@@ -1,6 +1,6 @@
 package my.fly;
 
-public class Superman extends Human {
+public class Superman extends Human implements Flyer {
 	
 	@Override
 	public void eat() {
@@ -8,7 +8,7 @@ public class Superman extends Human {
 		System.out.println("빵도 먹는다");
 	}
 	
-	public void flying() {
+	public void fly() {
 		System.out.println("망토를 휘날리며 난다");
 	}
 

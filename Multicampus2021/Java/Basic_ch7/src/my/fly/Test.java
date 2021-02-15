@@ -3,16 +3,15 @@ package my.fly;
 public class Test {
 
 	public static void main(String[] args) {
-		Bird b=new Bird();
-		Superman s=new Superman();
-		Airplane a=new Airplane();
+		Flyer b=new Bird();
+		Flyer s=new Superman();
+		Flyer a=new Airplane();
 		
-		show show=new show();
+		Show show=new Show();
 		show.airShow(b);
 		show.airShow(s);
 		show.airShow(a);
-		show.airShow("java");
-		
+//		show.airShow("java"); //규격에 맞지 않아 에러 발생! 
 		
 	}
 
