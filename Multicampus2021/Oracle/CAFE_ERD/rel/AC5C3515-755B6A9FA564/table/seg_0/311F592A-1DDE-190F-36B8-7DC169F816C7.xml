@@ -1,0 +1,153 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="311F592A-1DDE-190F-36B8-7DC169F816C7" name="STAFF">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:45:25 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="STAFFID" id="557E75BD-6022-12D0-BD8D-194ADCEC82CE">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:46:18 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STAFFNAME" id="CE8D3DB4-B0B9-33F6-524E-87ACDC6AD9DE">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:46:18 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT035</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<ownDataTypeParameters>4,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RANK" id="EAA9C285-77CF-9D1D-A2AD-F70CFC271935">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:46:18 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT035</logicalDatatype>
+<dataTypeSize>3</dataTypeSize>
+<ownDataTypeParameters>3,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HIRE_DATE" id="45428B12-677F-5701-1821-9D45C9B3F407">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:46:18 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="QUIT" id="03ADC320-F013-F71E-76C9-546E1224A70A">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:46:18 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MOBILE" id="FF1212E4-F1E8-2A91-0866-2E9F288E24E3">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:46:18 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>11</dataTypeSize>
+<ownDataTypeParameters>11,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PART" id="10AB505A-4A22-06B2-CCB3-AFE708EAE12E">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:46:18 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>6,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ACCOUNT_NUM" id="6204EC26-CDC6-FC06-4DDD-D13ACFE4978A">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:46:18 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BANK" id="7039BFCE-D44D-758E-744E-AFE9075D191B">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:46:18 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CLOCK_IN" id="25461BBE-1AB9-1919-A22F-DF6D74DE9081">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:46:18 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CLOCK_OUT" id="E8FE40BF-DF08-97C8-43C2-C834B2CB2616">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:46:18 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SALARY" id="51FAB9B2-1A0E-6FE7-CE73-8A0371B3711E">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:46:18 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="37BA4F7A-97E1-0048-6444-6482A7A9F9C2" name="STAFF_PK">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:46:18 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="557E75BD-6022-12D0-BD8D-194ADCEC82CE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

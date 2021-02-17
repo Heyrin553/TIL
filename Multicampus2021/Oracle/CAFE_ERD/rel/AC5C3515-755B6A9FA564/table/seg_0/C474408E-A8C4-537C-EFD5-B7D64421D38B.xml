@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C474408E-A8C4-537C-EFD5-B7D64421D38B" name="ORDER">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:39:58 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<ordsAlias>table_6</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ORDERID" id="36BECDA9-5346-567F-C9F9-C6AC443AF709">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:41:21 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ORDERDATE" id="C730145C-C8AD-C1EB-E7F6-37001A357FE1">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:41:21 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ORDERMEAN" id="5567E4EC-BE8D-CEDF-D695-5C9EBC355352">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:41:21 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT035</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<ownDataTypeParameters>4,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUSTOMER_CUSTOMERID" id="6DD1B220-260A-75D5-234B-0199884FF26D">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 06:06:51 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="575CAD70-2721-E6E0-3294-E4DD462BEE81" referredColumn="470FC453-2A3A-1807-D20B-8FABF225F6CD"/>
+</associations>
+</Column>
+<Column name="STAFF_STAFFID" id="0721725E-A7DD-3208-94A5-294115B0E29D">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 06:08:15 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="09FD301F-4375-A273-1B6B-B69A40C833F9" referredColumn="557E75BD-6022-12D0-BD8D-194ADCEC82CE"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="806DB499-80E5-2D41-7A33-4CEB59C6BC1B" name="ORDER_PK">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:41:21 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="36BECDA9-5346-567F-C9F9-C6AC443AF709"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B9C7BAD3-27BA-A1F1-DB5A-11DDDBAB5F6F" name="ORDER_CUSTOMER_FK">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 06:06:51 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6DD1B220-260A-75D5-234B-0199884FF26D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="40CDE781-FE84-01FB-9871-02E8D1488977" name="ORDER_STAFF_FK">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 06:08:15 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0721725E-A7DD-3208-94A5-294115B0E29D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

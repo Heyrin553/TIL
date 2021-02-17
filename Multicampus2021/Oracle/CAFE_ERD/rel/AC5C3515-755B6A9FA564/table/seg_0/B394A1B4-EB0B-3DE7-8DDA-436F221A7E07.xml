@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B394A1B4-EB0B-3DE7-8DDA-436F221A7E07" name="PRODUCT">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:31:47 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<ordsAlias>table_4</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="PRODUCTID" id="916EC3D6-3DDB-1D0C-100C-BC4C17A89C53">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:34:42 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCTNAME" id="DF88000A-9939-6AE3-2BE6-F9321471918C">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:34:42 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PRODUCTPRICE" id="5D9E7FA4-A90A-F27D-A6A4-91B1D55EF949">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:34:42 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="7B882C56-D6AE-6514-05DE-C5ECDC958F23" name="PRODUCT_PK">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:34:42 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="916EC3D6-3DDB-1D0C-100C-BC4C17A89C53"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

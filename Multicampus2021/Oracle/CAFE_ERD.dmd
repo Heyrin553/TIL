@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="CAFE_ERD" id="21EB59BF-D95B-1DBB-6BAC-F1CA86A5DCFC" version="3.5">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:20:42 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>21EB59BF-D95B-1DBB-6BAC-F1CA86A5DCFC</designId>
+</OSDM_Design>

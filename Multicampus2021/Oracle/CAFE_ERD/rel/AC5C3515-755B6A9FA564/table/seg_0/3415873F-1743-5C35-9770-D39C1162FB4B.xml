@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3415873F-1743-5C35-9770-D39C1162FB4B" name="CUSTOMER">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:22:35 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CUSTOMERID" id="470FC453-2A3A-1807-D20B-8FABF225F6CD">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:25:52 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CUSTOMERNAME" id="4DBA484A-C2C6-B69E-1045-39E5B39431D1">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:25:52 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT035</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<ownDataTypeParameters>4,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ANNIVERSARY" id="FCD0C27E-CED9-5A2D-068C-4BBE747665F3">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:25:52 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MOBILE" id="2D0E25B2-CA5D-CCFC-A03C-C5DAB84944F6">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:25:52 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>11</dataTypeSize>
+<ownDataTypeParameters>11,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="POINTS" id="4AC1F0F9-65FA-223B-B378-620C66E04501">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:25:52 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F1AD8148-D7BF-1889-CF3B-A61BA10D282F" name="CUSTOMER_PK">
+<createdBy>heyrin</createdBy>
+<createdTime>2021-02-17 05:26:21 UTC</createdTime>
+<ownerDesignName>CAFE_ERD</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="470FC453-2A3A-1807-D20B-8FABF225F6CD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
