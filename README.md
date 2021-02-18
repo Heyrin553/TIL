@@ -20,5 +20,34 @@
   - D: Delete (회원 탈퇴)
 - 각종 프로그램 Syntax를 연습할 수 있는 사이트를 알게 되었다.(링크는 여기 [w3school](https://www.w3schools.com/sql/default.asp) )
 
+-----
 
+### 2/18 목요일
 
+- JDBC 6단계를 배우고 코드로 구현했다. 
+
+- **JDBC**(Java Database Connectivity)는 자바에서 데이터베이스에 접속할 수 있도록 하는 자바 API이다. **JDBC**는 데이터베이스에서 자료를 쿼리하거나 업데이트하는 방법을 제공한다.
+
+- 구현 방법을 단계별로 보면 다음과 같다. 
+
+  1. Driver 등록 : `Class forName("드라이버 이름");`
+
+  2. 연결: `Connection con = DriverManager.getConnection(url, user, pw);`
+
+  3. Statement 생성: PreparedStatement stmt = con.preparestatement("SQL문")
+
+  4. SQL전송: `Result rs = stmt.executeQuery();`
+
+     ​				`int i = stmt.executeUpdate();`
+
+  5. 결과 얻기: `while (rs.next()){String id = rs.getString("칼럼명" or 칼럼번호)
+
+     ​												 int point = rs.getInt("칼럼명" or 칼럼번호) };
+
+  6. 자원 종료: `rs.close();`
+
+     ​		 	 	`stmt.close();`
+
+     ​			  	`con.close();`
+
+     
