@@ -2,7 +2,7 @@ package server.service;
 
 import java.util.ArrayList;
 
-import common.entity.Member;
+import common.entity.MemberDTO;
 import common.util.CafeException;
 import server.dao.MemberDAO;
 
@@ -18,13 +18,18 @@ public class MemberService {
 		 -> 수명이 같은 객체! (클래스 다이어그램에서 실선으로 표시)*/
 	}
 
-	public void insertMember(Member m) throws CafeException {
+	public void insertMember(MemberDTO m) throws CafeException {
 		mdao.insertMember(m);
 		
 	}
 
-	public ArrayList<Member> selectMember() throws CafeException {
+	public ArrayList<MemberDTO> selectMember() throws CafeException {
 		return mdao.selectMember(); // 위임, delegate pattern 
+		
+	}
+
+	public String selectMember(String memId) throws CafeException {
+		return mdao.selectMember(memId);
 		
 	}
 	

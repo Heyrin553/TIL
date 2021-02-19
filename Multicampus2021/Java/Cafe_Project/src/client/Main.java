@@ -1,6 +1,6 @@
 package client;
 
-import client_ui.CafeUi;
+import client.ui.CafeUi;
 
 public class Main {
 
