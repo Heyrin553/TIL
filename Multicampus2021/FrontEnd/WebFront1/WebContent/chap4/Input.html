@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <form action="" method = "get"> <!-- 서버에 연결하고 전송하려면 form 태그 필요! -->
+	<label for = "name">ID</label> 
+	<input id = "name" type = "text" value = "id를 입력하세요" name = "id"> <br> 
+	<!-- 라벨의 name과 input의 name이 서로 관계가있음을 표현할 수 있음  -->
+	<label>PW</label> <input type = "password" name = "pw">
+	<input type = "submit" value = "전송"> <br> <!-- 서버로 보내는 역할 -->
+	<input type = "button" value = "버튼"> <br> <!-- 그냥 버튼 -->
+	국어 <input type = "checkbox" value="국어" name = "체크박스"> <br>
+	수학 <input type = "checkbox" value="수학" name = "체크박스"> <br>
+	<input type = "file" value="파일" name = "파일"> <br> <!-- 파일 선택창 열기 -->
+	<input type = "reset" value = "초기화" name = "초기화">
+	사과<input type = "radio" name = "radio" value = "apple">
+	딸기<input type = "radio" name = "radio" value = "berry"> <br>
+	<textarea rows = "10" cols = "50" name = "textarea"></textarea>
+	
+	<select multiple="multiple">
+	<option>김밥</option>
+	<option>떡볶이</option>
+	<option>순대</option>
+	</select>
+	
+	<div>a</div>b <!-- 가시적으로 구분 -->
+	<span>a</span>b <!-- 의미적으로만 구분 -->
+	
+	
+	
+    </form>
+</body>
+</html>
