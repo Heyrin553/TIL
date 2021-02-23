@@ -3,23 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<style>
+	h1{
+	
+	background-color: lime;
+	}
+	
+	</style>
+
+
 </head>
 <body>
-	<h3>회원가입</h3>
-	ID <input type = "text"><br>
-	PW <input type = "password"><br>
-	NAME <input type = "text"><br>
-	관심분야: java <input type = "checkbox" >
-			c <input type = "checkbox" >
-			python <input type = "checkbox" ><br>
-	성별: 여<input type = "radio" name = "gender"> 남<input type = "radio" name = "gender"><br>
-	<!-- 라디오 타입은 name이 같아야 둘 중 하나만 선택됨  -->
-	등록 클래스: <select>
-	<option>A반</option>
-	<option>B반</option>
-	<option>C반</option>
-	</select><br>
-	<input type = "submit">
+	<form action="HelloServlet">
+		<h1>회원가입</h1>
+		ID <input type = "text" name="id" ><br>
+		PW <input type = "password" name = "id"><br>
+		NAME <input type = "text" name="name"><br>
+		관심분야: java <input type = "checkbox"  name="lang" value="java">
+			c <input type = "checkbox"  name="lang" value="c">
+			python <input type = "checkbox"  name="lang" value="python"><br>
+		성별: 여<input type = "radio" name = "gender"  value="female"> 남<input type = "radio" name = "gender" value="male"><br>
+		<!-- 라디오 타입은 name이 같아야 둘 중 하나만 선택됨  -->
+		등록 클래스: <select name="class">
+			<option value="A">A반</option>
+			<option value="B">B반</option>
+			<option value="C">C반</option>
+			</select><br>
+		<input type = "submit">
+		</form>
+		
+		<hr>
+		<a href="blog.html">블로그 가기</a>
 	
 </body>
 </html> 
