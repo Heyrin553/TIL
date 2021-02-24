@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Traditional Event</title>
+    <script>
+        // 이벤트를 연결합니다.
+        window.onload = function () {
+            // 문서 객체를 선택합니다.
+           document.getElementById("b").onclick = function () {
+               alert('클릭하셨네요');
+            };
+            document.getElementById("b2").onclick = function () {
+               this.textContent="버튼눌림"; // 콘솔에출력
+               this.style.backgroundColor="red";
+               this.style.color="white";
+               document.querySelector('div').innerHTML="<img src='lisa.png'>";
+        };
+        };
+    </script>
+</head>
+<body>
+    <button id="b">버튼1</button>
+    <button id="b2">버튼2</button>
+    <div>
+ 
+    </div>
+</body>
+</html>

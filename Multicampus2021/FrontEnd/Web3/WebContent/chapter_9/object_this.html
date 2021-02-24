@@ -1,0 +1,43 @@
+﻿<script>
+
+/*function f(pname){
+	this.bname = pname; //this 는 윈도우를 의미. 윈도우에 name이 생기고 "bbb"의 주소를 가리키게 됨
+}
+var p1 = new f("bbbb");
+alert(p1.bname);
+document.write(p1.bname);*/
+
+/*var Person = function(name){
+	this.namee=name;
+}
+
+var p4 = new Person("이주연");
+document.write(p4.namee);
+*/
+
+
+//function Person()
+
+
+    // 객체를 선언합니다.
+ /*   var v1 = new Object() ; //글로벌 변수(전역변수)-윈도우의 변수이다 vs 로컬 변수(지역변수) 
+    v1.name = "전혜린"; 
+    alert(v1.name);*/
+    
+    
+    
+    var person = {
+        name: '윤인성', // 멤버변수 
+        eat: function (food) {
+            alert(this.name + '이 ' + food + '을/를 먹습니다.'); // 반드시 this를 붙여야 바인딩됨 
+        }
+    };
+   
+    var name = "전혜린";
+    person.eat('밥');
+  
+
+    // 메서드를 호출합니다.
+   // person.eat('피자');
+   // person.go('학교');
+</script>
