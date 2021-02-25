@@ -7,13 +7,17 @@
         // 이벤트를 연결합니다.
         $(document).ready(function () {
             // 이벤트를 연결합니다.
-            $('h1').click(function () {
-                alert('클릭!');
-            });
-        });
+            function a(){
+            	alert('클릭!');
+            }
+            $('h1').click(a);
+            $('button').click(a);
+        });     
+        
     </script>
 </head>
 <body>
     <h1>Click</h1>
+    <button>Click</button>
 </body>
 </html>
