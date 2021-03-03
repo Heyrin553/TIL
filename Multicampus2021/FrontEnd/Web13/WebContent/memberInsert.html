@@ -3,19 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function memberInsert() {
+		var frmInsert=document.frmInsert;
+		
+		// 필드 체크 목적-필수입력체크하기 위해 값을 꺼내는 것 
+		var id=frmInsert.id.value; 
+		var pw=frmInsert.pw.value; 
+		
+		
+		//여기가 핵심
+		frmInsert.method="get";
+		frmInsert.action="main";
+		frmInsert.submit();
+		
+//		if((id.length==0||id==" ")||(pw.length==0||pw==" ")){
+//			alert("아이디와 비밀번호는 필수입니다");
+//		}else{
+//		}
+
+	}
+</script>
+
+
 </head>
 <body>
-	<form action="main" method="get" >
-		<input type="hidden" name="sign" value="memberInsert2">
-		ID <input name="id"><br>
+	<form name="frmInsert" >
+		<input type="hidden" name="sign" value="memberInsert"> 
+		ID <input name="id"><br> 
 		PW <input type="password" name="pw"><br>
-		NAME <input name="name"><br>
+		NAME <input name="name"><br> 
 		사용언어 : 
-		자바<input type="checkbox" name="subject" value="java">
-		C<input type="checkbox" name="subject" value="c">
-		JSP<input type="checkbox" name="subject" value="jsp">
-		Python<input type="checkbox" name="subject" value="python"><br>
-		<input type="submit" value="회원가입">
+		자바<input type="checkbox" name="subject" value="java"> 
+		C<input type="checkbox" name="subject" value="c"> 
+		JSP<input type="checkbox" name="subject" value="jsp"> 
+		Python<input type="checkbox" name="subject" value="python"><br> 
+		<input type="button" onClick="memberInsert()" value="회원가입">
 	</form>
 </body>
 </html>

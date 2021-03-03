@@ -3,6 +3,7 @@ package web.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,52 +11,89 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class MainServlet
- */
+import web.model.MemberDAO;
+import web.util.Member;
+import web.util.MyException;
+
 @WebServlet("/main")
 public class MainServlet extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	MemberDAO mDao;
+
+	@Override
+	public void init() throws ServletException {
+		super.init();
+		try {
+			mDao = new MemberDAO(); //
+		} catch (MyException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		process(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		process(request, response);
 	}
-	
-	protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void process(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String  sign=request.getParameter("sign");
-		if(sign==null) {
+		String sign = request.getParameter("sign");
+		if (sign == null) {
 			return;
-		}else if(sign.equals("login")){
-			String id=request.getParameter("id");
-			String pw=request.getParameter("pw");
-			PrintWriter out=response.getWriter();
-			out.write(id+":"+pw);
-		}else if(sign.equals("memberInsert")) {
-			String id=request.getParameter("id");
-			String pw=request.getParameter("pw");
-			String name=request.getParameter("name");
-			String [] all_subject=request.getParameterValues("subject");
-			PrintWriter out=response.getWriter();
-			out.write(id+":"+pw+":"+name+"<br>");
-			for(String s:all_subject) {
-				out.write(s+"&nbsp");
-			} 
-		}else if(sign.equals("memberInsert2")) {
-			Enumeration totalNames=request.getParameterNames();
-			while(totalNames.hasMoreElements()) {
-				String name=(String)totalNames.nextElement();
-				String []values=request.getParameterValues(name);
-				response.setContentType("text/html;charset=utf-8");
-				PrintWriter out=response.getWriter();
-				for(String value:values) {
-					out.append(name+":"+value+"<br>");
+
+		} else if (sign.equals("login")) { // 로그인 처리
+			String id = request.getParameter("id");
+			String pw = request.getParameter("pw");
+			
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			try {
+				String name = mDao.login(id, pw);
+				if(name!=null) {
+					//login ok
+					out.write(name + "님 환영합니다");
+				}else {
+					//login fail(그런 사람 없음)
+					out.write("다시 로그인 해주세요<br><a href='login.html'>다시 로그인하기</a>");
 				}
+			} catch (MyException e) {
+				//login error
+				out.write(e.getMessage());
+			}
+
+		} else if (sign.equals("memberInsert")) { // 회원가입 처리
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+
+			String id = request.getParameter("id");
+			String pw = request.getParameter("pw");
+			String name = request.getParameter("name");
+			String[] all_subject = request.getParameterValues("subject");
+			Member m = new Member(id, pw, name, all_subject); // 로컬변수로 선언!
+			try {
+				mDao.memberInsert(m);
+				out.write(id + "님 회원가입되셨습니다<br><a href='login.html'>로그인하러 가기</a>");
+			} catch (MyException e) {
+				out.write(e.getMessage());
+			}
+
+		} else if (sign.equals("listMembers")) { // 모든 회원 보기
+			try {
+				List<Member> list = mDao.listMembers();
+				response.setContentType("text/html;charset=utf-8");
+				PrintWriter out = response.getWriter();
+				for (Member m : list) {
+					out.append(m.getId() + ":" + m.getName() + "<br>");
+				}
+			} catch (MyException e) {
+				e.printStackTrace();
 			}
 		}
-
-		}
 	}
+}
