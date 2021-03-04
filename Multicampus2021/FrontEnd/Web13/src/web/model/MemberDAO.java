@@ -4,19 +4,28 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import web.util.Member;
 import web.util.MyException;
 
 public class MemberDAO {
+	DataSource dbcp;
 
 	public MemberDAO() throws MyException {
-		// 1. 드라이버 등록
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-		} catch (ClassNotFoundException e) {
+			Context ctx=new InitialContext();
+			Context envContext=(Context)ctx.lookup("java:/comp/env");
+			dbcp=(DataSource)envContext.lookup("jdbc/oracle");
+		} catch (NamingException e) {
 			e.printStackTrace();
-			throw new MyException("드라이버 등록 오류");
+			throw new MyException("자원 찾기 오류");
 		}
+		
+		
 	}
 
 	public void memberInsert(Member m) throws MyException {
@@ -24,8 +33,8 @@ public class MemberDAO {
 		Connection con = null;
 		PreparedStatement stmt = null;
 		try {
-			// 2. Connection
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "cafe", "1234");
+			// 2. Connection -커넥션 대여 
+			con = dbcp.getConnection();
 			// 3. stmt 생성
 			stmt = con.prepareStatement("insert into member(memid, memname, subject, pw) values(?, ?, ?, ?)");
 			// 4. SQL전송
@@ -48,7 +57,7 @@ public class MemberDAO {
 			// 6. 종료
 			try {
 				if (con != null)
-					con.close();
+					con.close(); // 자동 반납 
 				if (stmt != null)
 					stmt.close();
 			} catch (SQLException e) {
@@ -66,7 +75,7 @@ public class MemberDAO {
 		ResultSet rs = null;
 		try {
 			// 2. Connection
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "cafe", "1234");
+			con = dbcp.getConnection();
 			// 3. stmt 생성
 			stmt = con.prepareStatement("select * from member");
 			rs = stmt.executeQuery();
@@ -102,7 +111,7 @@ public class MemberDAO {
 		ResultSet rs = null;
 		try {
 			// 2. Connection
-			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "cafe", "1234");
+			con = dbcp.getConnection();
 			// 3. stmt 생성
 			stmt = con.prepareStatement("select * from member where memid=? and pw=?");
 			stmt.setString(1, id);
@@ -131,5 +140,36 @@ public class MemberDAO {
 			}
 		}
 
+	}
+
+	public void deleteMember(String id) throws MyException {
+		Connection con = null;
+		PreparedStatement stmt = null;
+		try {
+			// 2. Connection -커넥션 대여 
+			con = dbcp.getConnection();
+			// 3. stmt 생성
+			stmt = con.prepareStatement("delete from member where memid=?");
+			// 4. SQL전송
+			stmt.setString(1, id);
+
+			int i = stmt.executeUpdate();
+			// 5. 결과확인
+			System.out.println(i + "행이 delete 되었습니다");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new MyException("회원 삭제 오류");
+		} finally {
+			// 6. 종료
+			try {
+				if (con != null)
+					con.close(); // 자동 반납 
+				if (stmt != null)
+					stmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 }
