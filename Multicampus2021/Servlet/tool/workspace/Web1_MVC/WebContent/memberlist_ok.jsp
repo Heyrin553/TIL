@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.List,web.util.Member"%>
+	pageEncoding="UTF-8" import="java.util.List,web.util.Member" session="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +8,8 @@
 </head>
 <body>
 	<form action='main'>
-		<input type='hidden' name='key' value='memberDelete'> <input
-			name='id'><input type='submit' value='회원 삭제'>
+		<input type='hidden' name='key' value='memberDelete'> 
+		<input name='id'><input type='submit' value='회원 삭제'>
 	</form>
 
 			<table border='1' width='200'>
