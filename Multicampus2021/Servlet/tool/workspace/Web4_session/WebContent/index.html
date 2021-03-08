@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$("#loginBtn").click(function() {
+			$.post("main", 
+				JSON.stringify({ // 자바스크립트객체를 제이슨으로변환 
+				sign : "login",
+				id : $("#id").val(),
+				pw : $("#pw").val()
+			}), function(msg, status) {
+				var obj = JSON.parse(msg);
+				$("#msgDiv").html(obj.id + "님 환영합니다")
+			});
+		});
+	});
+</script>
+</head>
+<body>
+
+	<!-- 폼 태그 삭제/sign값 위에서 지정 -->
+	ID:
+	<input name="id" id="id">
+	<br> PW:
+	<input type="password" name="pw" id="pw">
+	<br>
+	<input type="button" value="login" id="loginBtn">
+
+	<div id="msgDiv"></div>
+
+</body>
+</html>
