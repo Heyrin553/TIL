@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+	<!-- bean definitions here -->
+	<bean id="memberService" class="my.service.MemberServiceImpl">
+		<property name="memberDAO" ref="memberDAO"></property>
+	</bean>
+
+	<bean id="memberDAO" class="my.dao.MemberDAOImpl"></bean>
+
+</beans>
