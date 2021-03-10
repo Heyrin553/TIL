@@ -5,21 +5,28 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import web.service.MemberService;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
-public class MemberControllerImpl extends MultiActionController implements MemberController{
+import web.service.MemberService;
+import web.vo.MemberVO;
+
+public class MemberControllerImpl extends MultiActionController implements MemberController {
 	
 	private MemberService memberService;
-	
+
 	public void setMemberService(MemberService memberService) {
-		this.memberService=memberService;
-		
+		this.memberService = memberService;
 	}
-	public ModelAndView listMembers(HttpServletRequest request, HttpServletResponse response) throws Exception{
-		List memberList = memberService.listMembers();
-		ModelAndView mav = new ModelAndView(viewName);
-		mav.addObject("membersList", membersList);
+	
+	public ModelAndView listMembers(HttpServletRequest request, HttpServletResponse response)
+	throws Exception{
+		System.out.println("listMembsers...");
+		List<MemberVO> membersList=memberService.listMembers();
+		ModelAndView mav=new ModelAndView("listMembers");// WEB-INF/views/listMembers.jsp
+		mav.addObject("membersList",membersList);
 		return mav;
 	}
+	
 
 }
