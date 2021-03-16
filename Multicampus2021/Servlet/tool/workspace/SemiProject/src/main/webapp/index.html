@@ -31,40 +31,42 @@
 <body>
 
 	<!-- Navigation -->
-	<div id="background-color">
-	<nav class="navbar navbar-expand-lg fixed-top" id="background-color">
+	<div>
+		<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
 
-		<div class="container">
+			<div class="container">
 				<div class="navbar-brand" href="#">
-					<div id="msgDiv">
-						<input size="12" id="id" placeholder="ID를 입력하세요"
-							> <input size="12" id="pw"
-							type="password" placeholder="PW를 입력하세요">
-						<input type="button" id="loginBtn" value="로그인">
+					<div class="input-group-sm">
+						<div id="msgDiv">
+							<input size="5" id="id" placeholder="ID"> <input
+								size="5" id="pw" type="password" placeholder="PW"> <input
+								type="button" class="btn btn-light btn-sm" id="loginBtn"
+								value="로그인">
+						</div>
 					</div>
 				</div>
 
 
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarResponsive" aria-controls="navbarResponsive"
-				aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active "><a class="nav-link text-light" href="#">Home
-							<span class="sr-only">(current)</span>
-					</a></li>
-					<li class="nav-item"><a class="nav-link text-light" href="#">About</a></li>
-					<li class="nav-item"><a class="nav-link text-light"
-						href="loginForm.heyrin">장바구니</a></li>
-					<li class="nav-item"><a class="nav-link text-light" href="#"
-						onclick="window.open('html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=750');">회원가입</a>
-					</li>
-				</ul>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarResponsive" aria-controls="navbarResponsive"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active "><a class="nav-link text-light"
+							href="#">Home <span class="sr-only">(current)</span>
+						</a></li>
+						<li class="nav-item"><a class="nav-link text-light" href="#">About</a></li>
+						<li class="nav-item"><a class="nav-link text-light"
+							href="loginForm.heyrin">장바구니</a></li>
+						<li class="nav-item"><a class="nav-link text-light" href="#"
+							onclick="window.open('html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=750');">회원가입</a>
+						</li>
+					</ul>
+				</div>
 			</div>
-		</div>
-	</nav>
+		</nav>
 	</div>
 
 	<!-- Page Content -->
@@ -76,9 +78,9 @@
 
 				<h1 class="my-4">Merry Cake!</h1>
 				<div class="list-group">
-					<a href="#" class="list-group-item text-info">레터링 케이크</a> <a href="#"
-						class="list-group-item text-info">일러스트 케이크</a> <a href="#"
-						class="list-group-item text-info">앙금 케이크</a> <a href="#"
+					<a href="#" class="list-group-item text-info">레터링 케이크</a> <a
+						href="#" class="list-group-item text-info">일러스트 케이크</a> <a
+						href="#" class="list-group-item text-info">앙금 케이크</a> <a href="#"
 						class="list-group-item text-info">도시락 케이크</a> <a href="#"
 						class="list-group-item text-info">디자인 상담</a>
 				</div>
@@ -129,9 +131,9 @@
 								src="img/lettering_round.JPG" alt=""></a>
 							<div class="card-body">
 								<h4 class="card-title">
-									<a href="#" class="text-info">Item One</a>
+									<a href="#" class="orderForm" name="레터링 케이크(라운드)">레터링 케이크(라운드)</a>
 								</h4>
-								<h5>$24.99</h5>
+								<h5>35,000</h5>
 								<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 									adipisicing elit. Amet numquam aspernatur!</p>
 							</div>
@@ -148,7 +150,7 @@
 								src="img/lettering_heart.JPG" alt=""></a>
 							<div class="card-body">
 								<h4 class="card-title text-info">
-									<a href="#" class="text-info">Item Two</a>
+									<a href="#" class="text-info orderForm" name="레터링 케이크(하트)">레터링 케이크(하트)</a>
 								</h4>
 								<h5>$24.99</h5>
 								<p class="card-text">Lorem ipsum dolor sit amet, consectetur
@@ -168,9 +170,9 @@
 								src="img/lettering_flower.JPG" alt=""></a>
 							<div class="card-body">
 								<h4 class="card-title text-info">
-									<a href="#" class="text-info">Item Three</a>
+									<a href="#" class="text-info orderForm" name="레터링 케이크(플라워)">레터링 케이크(플라워)</a>
 								</h4>
-								<h5>$24.99</h5>
+								<h5>35,000</h5>
 								<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 									adipisicing elit. Amet numquam aspernatur!</p>
 							</div>
@@ -187,9 +189,9 @@
 								src="img/drawing_character.JPG" alt=""></a>
 							<div class="card-body">
 								<h4 class="card-title">
-									<a href="#" class="text-info">Item Four</a>
+									<a href="#" class="text-info orderForm" name="일러스트 케이크">일러스트 케이크</a>
 								</h4>
-								<h5>$24.99</h5>
+								<h5>40,000</h5>
 								<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 									adipisicing elit. Amet numquam aspernatur!</p>
 							</div>
@@ -206,9 +208,9 @@
 								src="img/whitebeanpaste.JPG" alt=""></a>
 							<div class="card-body">
 								<h4 class="card-title">
-									<a href="#" class="text-info">Item Five</a>
+									<a href="#" class="text-info orderForm" name="앙금 케이크">앙금 케이크 </a>
 								</h4>
-								<h5>$24.99</h5>
+								<h5>40,000</h5>
 								<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 									adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor
 									sit amet.</p>
@@ -226,9 +228,9 @@
 								alt=""></a>
 							<div class="card-body">
 								<h4 class="card-title">
-									<a href="#" class="text-info">Item Six</a>
+									<a href="#" class="text-info orderForm" name="도시락 케이크">도시락 케이크</a>
 								</h4>
-								<h5>$24.99</h5>
+								<h5>15,000</h5>
 								<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 									adipisicing elit. Amet numquam aspernatur!</p>
 							</div>
@@ -254,7 +256,8 @@
 	<!-- Footer -->
 	<footer class="py-5" id="background-color">
 		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Merry Cake!</p>
+			<p class="m-0 text-center text-white">Copyright &copy; Merry
+				Cake!</p>
 		</div>
 		<!-- /.container -->
 	</footer>
