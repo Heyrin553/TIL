@@ -35,40 +35,36 @@ public class HomeController {
 	@Autowired
 	MemberService memberService;
 
-	@RequestMapping(value = "login.heyrin", 
-			method= {RequestMethod.POST},
-			produces = "application/text; charset=utf8")			
+	@RequestMapping(value = "login.heyrin", method = {
+			RequestMethod.POST }, produces = "application/text; charset=utf8")
 	@ResponseBody
-	public String login(HttpServletRequest request,
-			HttpServletResponse response){
-		String id=request.getParameter("id");
-		String pw=request.getParameter("pw");	
-		
-		JSONObject json=new JSONObject();
-		
+	public String login(HttpServletRequest request, HttpServletResponse response) {
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+
+		JSONObject json = new JSONObject();
+
 		try {
-			MemberVO m=new MemberVO(id,pw); 
-			String name=memberService.login(m);
-			if(name!=null) {
-				HttpSession session=request.getSession();
+			MemberVO m = new MemberVO(id, pw);
+			String name = memberService.login(m);
+			if (name != null) {
+				HttpSession session = request.getSession();
 				session.setAttribute("member", m);
 				json.put("name", name);
-			}else {
+			} else {
 				json.put("msg", "로그인 실패");
 			}
-		}catch(Exception e) {
+		} catch (Exception e) {
 			json.put("msg", e.getMessage());
-		}	
+		}
 		return json.toJSONString();
 	}
-	
-	@RequestMapping(value = "logout.heyrin", 
-			method= {RequestMethod.POST},
-			produces = "application/text; charset=utf8")			
+
+	@RequestMapping(value = "logout.heyrin", method = {
+			RequestMethod.POST }, produces = "application/text; charset=utf8")
 	@ResponseBody
-	public String logout(HttpServletRequest request,
-			HttpServletResponse response){
-		HttpSession session=request.getSession(false);
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession(false);
 		session.invalidate();
 		return "";
 	}
@@ -94,49 +90,48 @@ public class HomeController {
 		}
 
 	}
-	
+
 	@Autowired
 	OrderService orderService;
-	
+
 	@RequestMapping(value = "order.heyrin", method = {
 			RequestMethod.POST }, produces = "application/text; charset=utf8") // 한글 처리
 	@ResponseBody
 	public String order(HttpServletRequest request, HttpServletResponse response) {
-		JSONObject json=null;
+		JSONObject json = null;
 
 		try {
-			BufferedReader br=request.getReader();
-			JSONParser parser=new JSONParser();
-			json=(JSONObject) parser.parse(br);
-			JSONArray array=(JSONArray)json.get("product");
-			
-			Object [] array2=array.toArray();
-			
-			
-			ArrayList<OrderVO> list=new ArrayList<OrderVO>();
-			for(Object o:array2) {
-				JSONObject j=(JSONObject)o;
-				String prodName=(String)j.get("name");
-				long quantity=(Long) j.get("quantity");
-				OrderVO orderVO=new OrderVO("web", prodName, quantity);
-				HttpSession session=request.getSession();
-				MemberVO memberVO=(MemberVO)session.getAttribute("member");
-				
-				if(memberVO!=null) {
+			BufferedReader br = request.getReader();
+			JSONParser parser = new JSONParser();
+			json = (JSONObject) parser.parse(br);
+			JSONArray array = (JSONArray) json.get("product");
+
+			Object[] array2 = array.toArray();
+
+			ArrayList<OrderVO> list = new ArrayList<OrderVO>();
+			for (Object o : array2) {
+				JSONObject j = (JSONObject) o;
+				String prodName = (String) j.get("name");
+				long quantity = (Long) j.get("quantity");
+				OrderVO orderVO = new OrderVO("web", prodName, quantity);
+				HttpSession session = request.getSession();
+				MemberVO memberVO = (MemberVO) session.getAttribute("member");
+
+				if (memberVO != null) {
 					orderVO.setMemberId(memberVO.getId());
-				}else {
-					orderVO.setMemberId("Anonymous");
+				} else {
+					orderVO.setMemberId("");
 				}
 				list.add(orderVO);
 			}
-			System.out.println("총"+list.size()+"개 품목을 주문합니다");
-			long order_group_no=orderService.orderInsert(list);
-			
-			json=new JSONObject();
-			
-			if(true) {
+			System.out.println("총" + list.size() + "개 품목을 주문합니다");
+			long order_group_no = orderService.orderInsert(list);
+
+			json = new JSONObject();
+
+			if (true) {
 				json.put("order_group_no", order_group_no);
-			}else {
+			} else {
 				json.put("msg", "주문 실패");
 			}
 		} catch (Exception e) {

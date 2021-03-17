@@ -166,22 +166,15 @@
 		var items = "";
 		obj.product
 				.forEach(function(item) { // 하나씩의 아이템(품목)을 꺼내서				
-
-					// item_html += '<input size="8" type="text"  id="name" value="'+item.name+'" disabled="disabled">';				
-					//item_html += '<label for="InputEmail"> 수량 </label>';
-					//item_html += '';
-					//
 					item_html += '<tr>'
-					item_html += '<td><img src="https://dummyimage.com/50x50/55595c/fff" /></td>';
-					item_html += '<td width="30%" id="name">' + item.name + '</td>';
-					item_html += '<td width="20%">In stock</td>';
-					item_html += '<td width="15%"><input class="form-control" type="number" min="1"  max="100" step="1" value="'+item.quantity+'" id="number"/></td>';
-					item_html += '<td width="20%" >70,00 €</td>'
-					item_html += '<td width="20%" ><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button></td>';
-					item_html += '</tr>';
+					item_html += '<td width="20%"><label for="inputName" margin-right="10"> 상품명 </label></td>';
+					item_html += '<td width="20%"><input size="20" type="text"  id="name" value="'+item.name+'" disabled="disabled"></td>';
+					item_html += '<td width="20%"><label for="InputEmail"> 수량 </label></td>';
+					item_html += '<td width="20%"><input type="number" min="1"  max="100" step="1" value="'+item.quantity+'" id="number"/></td>';
+					item_html += '<td><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button></td>'
 					item_html += '<br>';
-
-					//items += item.name +" : "+ item.quantity +"개\n";
+					items += item.name + " : " + item.quantity + "개\n";
+					item_html += '</tr>'
 				});
 		$("#itemDiv").html(item_html);
 	}

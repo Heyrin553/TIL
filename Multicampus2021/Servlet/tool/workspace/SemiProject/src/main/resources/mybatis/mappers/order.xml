@@ -18,7 +18,7 @@
 	<insert id="insert" parameterType="orderVO" >
 		<![CDATA[
 			insert into orders(orderdate,ordermethod,memberid,prodname,quantity,order_group_no) 
-			values(SYSDATE,#{ordermethod},#{memberid},#{prodname},#{quantity},#{order_group_no})
+			values(SYSDATE,#{orderMethod},#{memberId},#{prodName},#{quantity},#{order_group_no})
 		]]>
 	</insert>
 	

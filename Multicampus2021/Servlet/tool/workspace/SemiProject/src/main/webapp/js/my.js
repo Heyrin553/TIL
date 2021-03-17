@@ -22,7 +22,7 @@ $(document).ready(function() {
 					const obj = JSON.parse(data);
 					if (obj.order_group_no) {
 						alert("주문완료: [주문번호]" + obj.order_group_no);
-						$.removeCookie("basket", { path: "/" });
+						$.removeCookie("basket", { path: '/' });
 					} else {
 						alert(obj.msg);
 					}
