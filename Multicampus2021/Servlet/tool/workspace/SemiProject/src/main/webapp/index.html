@@ -13,7 +13,10 @@
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/minty/bootstrap.min.css" integrity="sha384-H4X+4tKc7b8s4GoMrylmy2ssQYpDHoqzPa9aKXbDwPoPUA3Ra8PA5dGzijN+ePnH" crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/minty/bootstrap.min.css"
+	integrity="sha384-H4X+4tKc7b8s4GoMrylmy2ssQYpDHoqzPa9aKXbDwPoPUA3Ra8PA5dGzijN+ePnH"
+	crossorigin="anonymous">
 
 <!-- Custom styles for this template -->
 <link href="css/shop-homepage.css" rel="stylesheet">
@@ -39,10 +42,8 @@
 				<div class="navbar-brand" href="#">
 					<div class="input-group-sm">
 						<div id="msgDiv">
-							<input size="5" id="id" placeholder="ID"> 
-							<input
-								size="5" id="pw" type="password" placeholder="PW"> 
-								<input
+							<input type="text" size="5" id="id" placeholder="ID"> <input
+								size="5" id="pw" type="password" placeholder="PW"> <input
 								type="button" class="btn btn-secondary" id="loginBtn"
 								value="로그인">
 						</div>
@@ -60,11 +61,12 @@
 						<li class="nav-item active "><a class="nav-link text-light"
 							href="#">Home <span class="sr-only">(current)</span>
 						</a></li>
-						<li class="nav-item"><a class="nav-link text-light" href="html/memberInfo.html">ID/PW찾기</a></li>
 						<li class="nav-item"><a class="nav-link text-light"
-							href="loginForm.heyrin">장바구니</a></li>
+							href="html/memberInfo.html">ID/PW찾기</a></li>
 						<li class="nav-item"><a class="nav-link text-light" href="#"
-							onclick="window.open('html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=750');">회원가입</a>
+							onclick="window.open('html/orderForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=475,height=500');">장바구니</a></li>
+						<li class="nav-item"><a class="nav-link text-light" href="#"
+							onclick="window.open('html/memberInsertForm.html', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=400,height=680');">회원가입</a>
 						</li>
 					</ul>
 				</div>
@@ -79,13 +81,15 @@
 
 			<div class="col-lg-3">
 
-				<h1 class="my-4">Danke</h1>
+				<h1 class="my-4">Danke 🧁</h1>
 				<div class="list-group">
-					<a href="#" class="list-group-item">종류별 케이크 찾기</a> <a
-						href="#" class="list-group-item">지역별 매장 찾기</a> <a
-						href="#" class="list-group-item">우리집 주변 매장 찾기</a> 
-						<a href="#" class="list-group-item">디자인 상담</a>
+					<a href="#" class="list-group-item">종류별 케이크 찾기</a> <a href="#"
+						class="list-group-item">지역별 매장 찾기</a> <a href="#"
+						class="list-group-item">우리집 주변 매장 찾기</a> 
 				</div>
+				<br>
+				<form method=post action="list.heyrin">
+				<input type="button" id="list" class = "btn btn-primary" value="리뷰 모아보기"></form>
 
 			</div>
 			<!-- /.col-lg-3 -->
@@ -133,7 +137,8 @@
 								src="img/lettering_round.JPG" alt=""></a>
 							<div class="card-body">
 								<h4 class="card-title">
-									<a href="#" class="orderForm" name="레터링 케이크(라운드)">레터링 케이크(라운드)</a>
+									<a href="#" class="orderForm" name="레터링 케이크(라운드)">레터링
+										케이크(라운드)</a>
 								</h4>
 								<h5>35,000</h5>
 								<p class="card-text">Lorem ipsum dolor sit amet, consectetur
@@ -152,7 +157,8 @@
 								src="img/lettering_heart.JPG" alt=""></a>
 							<div class="card-body">
 								<h4 class="card-title">
-									<a href="#" class="orderForm" name="레터링 케이크(하트)">레터링 케이크(하트)</a>
+									<a href="#" class="orderForm" name="레터링 케이크(하트)">레터링
+										케이크(하트)</a>
 								</h4>
 								<h5>$24.99</h5>
 								<p class="card-text">Lorem ipsum dolor sit amet, consectetur
@@ -172,7 +178,8 @@
 								src="img/lettering_flower.JPG" alt=""></a>
 							<div class="card-body">
 								<h4 class="card-title">
-									<a href="#" class="orderForm" name="레터링 케이크(플라워)">레터링 케이크(플라워)</a>
+									<a href="#" class="orderForm" name="레터링 케이크(플라워)">레터링
+										케이크(플라워)</a>
 								</h4>
 								<h5>35,000</h5>
 								<p class="card-text">Lorem ipsum dolor sit amet, consectetur

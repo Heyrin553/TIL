@@ -4,8 +4,27 @@
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-shop-homepage/blob/master/LICENSE)
  */
 body {
-  padding-top: 100px;
+	
 }
+
+div.box {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -150px;
+	margin-top: -70px; height : 340px;
+	width: 340px;
+	height: 340px;
+}
+
+footer {
+	width: 100%;
+	height: 100px;
+	position: absolute;
+	bottom: 0;
+}
+
+
 
 /* .d-block{
 	width: 900px;
@@ -24,4 +43,3 @@ footer .py-5{
 .btn-secondary{
 	background-color: #f3969a;
 } */
-

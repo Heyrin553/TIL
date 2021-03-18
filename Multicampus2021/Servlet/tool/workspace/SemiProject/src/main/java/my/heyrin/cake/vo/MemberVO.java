@@ -5,6 +5,13 @@ import my.heyrin.cake.util.MyException;
 public class MemberVO {
 
 	private String id, pw, name;
+	
+	
+
+	public MemberVO(String id) {
+		super();
+		this.id = id;
+	}
 
 	public MemberVO(String id, String pw, String name) throws MyException {
 

@@ -8,6 +8,8 @@
 	<typeAliases>
 		<typeAlias type="my.heyrin.cake.vo.MemberVO" alias="memberVO"/>
 		<typeAlias type="my.heyrin.cake.vo.OrderVO" alias="orderVO"/>
+		<typeAlias type="my.heyrin.cake.vo.BoardVO" alias="boardVO"/>
+		
 	</typeAliases>
 
 </configuration>

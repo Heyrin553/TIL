@@ -20,5 +20,14 @@ public class MemberService {
 		// TODO Auto-generated method stub
 		return memberDAO.login(m);
 	}
+	
+	public String selectIdByName(String name) {
+		return memberDAO.selectIdByName(name);
+	}
+
+	public String selectPwById(String id) {
+		// TODO Auto-generated method stub
+		return memberDAO.selectIdByName(id);
+	}
 
 }

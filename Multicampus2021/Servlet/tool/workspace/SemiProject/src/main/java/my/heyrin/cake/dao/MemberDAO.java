@@ -19,5 +19,13 @@ public class MemberDAO {
 	public String login(MemberVO m) {
 		return sqlSession.selectOne("mapper.member.login", m);
 	}
+	
+	public String selectIdByName(String name) {
+		return sqlSession.selectOne("mapper.member.selectIdByName", name);
+	}
+	
+	public String selectPwById(String id) {
+		return sqlSession.selectOne("mapper.member.selectPwById", id);
+	}
 
 }

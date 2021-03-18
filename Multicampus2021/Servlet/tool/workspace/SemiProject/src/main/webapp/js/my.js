@@ -1,13 +1,39 @@
 
+$(document).on("click", "#list", function(event) {
+	location.href = "list.heyrin";
+});
+
+$(document).on("click", "#btnWrite", function(event) {
+	alert();
+	/* location.href = "write.heyrin"; */
+});
 
 $(document).ready(function() {
 
-	/*	$('selector').css('width', $(window).width());
-		$('selector').css('height', $(window).height());
-		$(window).resize(function() {
-			$('selector').css('width', $(window).width());
-			$('selector').css('height', $(window).height());
-		});*/
+	$("#findPwBtn").click(function() {
+		var id = $("#id").val();
+		//alert(id);
+		$.post("../selectPwById.heyrin",
+			{
+				id: id
+			},
+			function(data, status) {
+				alert(data);
+			});
+	});
+
+	$("#findIdBtn").click(function() {
+		var name = $("#name").val();
+		//alert(name);
+		$.post("../selectIdByName.heyrin",
+			{
+				name: name
+			},
+			function(data, status) {
+				alert("회원님의 ID는 " + data + "입니다");
+			});
+	});
+
 
 	$("#orderBtn").click(function() {
 
@@ -110,9 +136,13 @@ $(document).ready(function() {
 			function(data, status) {
 				var obj = JSON.parse(data);
 				if (obj.name) {
-					data += "<input type='button' value='로그아웃' id='logoutBtn'>";
+					data = obj.name + "님 환영합니다🍰  " + "<input type='button' class='btn btn-secondary' value='로그아웃' id='logoutBtn'>";
 					$.cookie("logined", data);
 					$("#msgDiv").html(data);
+
+					/*data += "<input type='button' value='로그아웃' id='logoutBtn'>";
+					$.cookie("logined", data);
+					$("#msgDiv").html(data);*/
 				} else {
 					alert(obj.msg);
 					location.reload();

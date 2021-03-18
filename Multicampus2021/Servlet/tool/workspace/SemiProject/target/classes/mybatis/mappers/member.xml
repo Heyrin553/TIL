@@ -23,9 +23,17 @@
 		]]>
 	</select>
 	
-	<select id="selectMemberById" resultMap="memResult" parameterType="String">
+	<!-- Id로 Pw찾기 -->
+	<select id="selectPwById" resultType="String" parameterType="String">
 		<![CDATA[
-			select * from member where memid=#{id}
+			select pw from member where memid=#{id}
+		]]>
+	</select>
+	
+	<!-- Name로 Id찾기 -->
+	<select id="selectIdByName" resultType="String" parameterType="String">
+		<![CDATA[
+			select memid from member where memname=#{name}
 		]]>
 	</select>
 	

@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,9 +24,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import my.heyrin.cake.service.BoardService;
 import my.heyrin.cake.service.MemberService;
 import my.heyrin.cake.service.OrderService;
 import my.heyrin.cake.util.MyException;
+import my.heyrin.cake.vo.BoardVO;
 import my.heyrin.cake.vo.MemberVO;
 import my.heyrin.cake.vo.OrderVO;
 
@@ -34,6 +37,40 @@ public class HomeController {
 
 	@Autowired
 	MemberService memberService;
+
+	@RequestMapping(value = "selectPwById.heyrin", method = {
+			RequestMethod.POST }, produces = "application/text; charset=utf8")
+	@ResponseBody
+	public String selectPwById(HttpServletRequest request, HttpServletResponse response) {
+		String id = request.getParameter("id");
+
+		try {
+			String pw = memberService.selectPwById(id);
+			return pw;
+
+		} catch (Exception e) {
+			return e.getMessage();
+		}
+	}
+
+	@RequestMapping(value = "selectIdByName.heyrin", method = {
+			RequestMethod.POST }, produces = "application/text; charset=utf8")
+	@ResponseBody
+	public String selectIdByName(HttpServletRequest request, HttpServletResponse response) {
+		String name = request.getParameter("name");
+
+		try {
+			String id = memberService.selectIdByName(name);
+			if (id != null) {
+				return id;
+
+			} else {
+				return "가입된 아이디가 없습니다";
+			}
+		} catch (Exception e) {
+			return e.getMessage();
+		}
+	}
 
 	@RequestMapping(value = "login.heyrin", method = {
 			RequestMethod.POST }, produces = "application/text; charset=utf8")
@@ -142,13 +179,29 @@ public class HomeController {
 
 	}
 
-//	@RequestMapping(value = "login.heyrin")
-//	public ModelAndView login(HttpServletRequest request, HttpServletResponse response) {
-//
-//		System.out.println(1);
-//		ModelAndView mav = new ModelAndView("login_ok");
-//		return mav;
-//
-//	}
+	@Autowired
+	BoardService boardService;
+
+	@RequestMapping(value = "list.heyrin") // 한글 처리
+
+	public List<BoardVO> list() {
+
+		return boardService.listAll();
+
+	}
+
+	@RequestMapping(value = "board.heyrin", method = RequestMethod.GET)
+	public String board() {
+		return "board";
+	}
+	
+	@RequestMapping(value="write.heyrin", method=RequestMethod.GET)
+    public String write() {
+        return "write";
+    }
+	
+	
+	
+	
 
 }
