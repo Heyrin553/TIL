@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>title</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script>
+$(function(){
+$.removeCookie('TEST');
+$.cookie('www', 'hello world');
+console.log($.cookie('www'));
+});
+</script>
+</head>
+<body>
+</body>
+</html>
+
+
