@@ -6,13 +6,9 @@
 
 
 
-
-
 ## Today I Learned
 
-### 2/16 화요일
-
-- **이것이 오라클이다** 첫 진도를 나갔다. DBMS 개요와 Oracle소개, Oracle XE설치, SQL기본 문법을 배웠다. 
+-  DBMS 개요와 Oracle소개, Oracle XE설치, SQL기본 문법을 배웠다. 
 - SQL기본 구문 **CRUD**
   - C: Create / Insert (회원가입)
   - R: Read / Select (로그인)
@@ -21,8 +17,6 @@
 - 각종 프로그램 Syntax를 연습할 수 있는 사이트를 알게 되었다.(링크는 여기 [w3school](https://www.w3schools.com/sql/default.asp) )
 
 -----
-
-### 2/18 목요일
 
 - JDBC 6단계를 배우고 코드로 구현했다. 
 
