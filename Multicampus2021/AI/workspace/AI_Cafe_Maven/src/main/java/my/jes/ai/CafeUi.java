@@ -5,13 +5,23 @@
  */
 package my.jes.ai;
 
+import java.awt.Dimension;
 import java.awt.Label;
+import java.awt.Point;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -19,6 +29,7 @@ import javax.swing.SwingWorker;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import my.jes.ai.engine.STT;
+import my.jes.ai.engine.TTS;
 import my.jes.ai.engine.VoiceOrders;
 
 /**
@@ -26,6 +37,7 @@ import my.jes.ai.engine.VoiceOrders;
  * @author javan_000
  */
 public class CafeUi extends javax.swing.JFrame {
+    JFXPanel fxPanel;
 
     /**
      * Creates new form CafeUi
@@ -33,8 +45,44 @@ public class CafeUi extends javax.swing.JFrame {
     public CafeUi() {
         initComponents();
         setUi();
-//      startAI();
+       // startAI();
+        initFX();
     }
+    
+     private void initFX() {
+	JFrame frame = new JFrame("FX"); //프레임을하나생성. 타이틀은 FX 
+	//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+	frame.getContentPane().setLayout(null); //기존레이아웃을 null
+	final JButton jButton = new JButton("취소"); //취소버튼생성 
+	fxPanel = new JFXPanel(); //패널생성(투명필름의역할)
+	frame.add(jButton); //레이아웃을 null했기때문에 추가하는 순서대로 화면에들어감 
+	frame.add(fxPanel);
+	//frame.setVisible(true); //메모리에만 구성됨. 화면에는 아직 안보임 
+	jButton.setSize(new Dimension(200, 27)); 
+	fxPanel.setSize(new Dimension(300, 300));
+	fxPanel.setLocation(new Point(0, 27));
+	frame.getContentPane().setPreferredSize(new Dimension(300, 327));
+	frame.pack();
+	frame.setResizable(false); //사이즈변경안함 
+} // 여기까지 swingUI
+     
+     private void initAndLoadWebView(final JFXPanel fxPanel) { // 이것이 웹브라우저. 취소버튼과 패널이붙어있는것이 fxPanel
+	Group group = new Group();
+	Scene scene = new Scene(group); 
+	fxPanel.setScene(scene); //패널에 장변을 하나 넣음
+	WebView webView = new WebView(); //패널위에 웹브라우저가 붙음
+	group.getChildren().add(webView);
+	webView.setMinSize(300, 300);
+	webView.setMaxSize(300, 300);
+	WebEngine webEngine = webView.getEngine(); //웹뷰 에 웹엔진이 붙어있도록함 
+
+	webEngine.load("file:///C://Users//혜린//TIL//Multicampus2021//AI//workspace//AI_Cafe_Maven//index.html"); //이 웹브라우저에 표현해라 
+        //파일이 원격에 있으면 http로, 내컴퓨터에 있으면 file로 요청
+         //내파일을 그냥 로컬에서 열라고 명령하는것 
+         //index.html에 오디오태그가 있으면됨 
+
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -783,16 +831,28 @@ Hashtable<String,Integer> basket=new Hashtable();
     //MyWorker라는 SwingWorker작성
     class MyWorker extends SwingWorker{ //스윙에서 쓸 수 있는 특별한 스레드. 작업스레드와의 충돌을 피할 수 있음 
 
+        //여기가 핵심!! 
         @Override
         protected Object doInBackground(){ //run메소드같은것 
+            //사용자 음성인식해서 텍스트로 변환 
             String stt=STT.process(); //STT클래스에서 process를 수행하면 String을 반환한다 
             System.out.println(stt);
-            VoiceOrders.process(stt);
+            //챗봇호출
+            String chatbotMsg = VoiceOrders.process(stt);
+            //챗봇메시지를 음성합성 => tts.mp3파일이 생김 => (여기가 문제)파일을 플레이해야함. 음성을 직접 재생하는게아니라 어플리케이션이 음성을 재생해야 하기때문에 javafx를 사용해서 우회접근해서 재생
+            TTS.process(chatbotMsg);
             return null;
         }
         @Override
         protected void done() { // doInBackground를 다하고나면 자동으로 done을 수행 
             jLabel8.setIcon(new ImageIcon("img\\mic.png")); // 다시 원래이미지로
+            //여기서 play되어야함 
+             Platform.runLater(new Runnable() {
+                    public void run() {
+                            initAndLoadWebView(fxPanel);
+                    }
+                });     
+            
         }
     }
  

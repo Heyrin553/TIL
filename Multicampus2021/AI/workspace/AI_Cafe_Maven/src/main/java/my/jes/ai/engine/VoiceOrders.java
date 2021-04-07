@@ -30,7 +30,7 @@ import org.json.JSONObject;
  */
 public class VoiceOrders {
 
-     public static void process(String voiceMessage) {
+     public static String process(String voiceMessage) {
 
         String chatbotMessage = "";
 
@@ -41,7 +41,7 @@ public class VoiceOrders {
 
            // String voiceMessage="문 열어요?";
             String message = getReqMessage(voiceMessage);
-            System.out.println("##" + message);
+ //           System.out.println("##" + message);
 
             String secretKey="a2h0WE5RZ2lqQnl2RnVNUGZudHhtTUpJQmFRTVpQQks=";
             String encodeBase64String = makeSignature(message, secretKey);
@@ -77,11 +77,28 @@ public class VoiceOrders {
             } else {  // Error occurred
                 chatbotMessage = con.getResponseMessage();
             }
-            System.out.println("하이");
-
             System.out.println(chatbotMessage);
+            
+            //JSON parsing
+            JSONObject o=new JSONObject(chatbotMessage);
+            JSONArray bubbles = o.getJSONArray("bubbles");
+           // System.out.println(bubbles);
+            JSONObject bubbles0 = bubbles.getJSONObject(0);
+            JSONObject data=bubbles0.getJSONObject("data");
+            String description = (String) data.get("description");
+            
+            JSONArray slot = o.getJSONArray("slot");
+            JSONObject slot0 = slot.getJSONObject(0);
+            String name = (String) slot0.get("name");
+            String value = (String) slot0.get("value");
+            System.out.println(name + ": " +value);
+
+            System.out.println("챗봇 --->"+description);
+            return description;
+            
         } catch (Exception e) {
             System.out.println(e);
+            return "죄송합니다. 다시 말씀해 주세요";
         }
 
         

@@ -20,6 +20,7 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.DataLine;
 import javax.sound.sampled.TargetDataLine;
+import org.json.JSONObject;
 
 
 /**
@@ -107,8 +108,13 @@ public class STT {
 	                    response.append(inputLine);
 	                }
 	                br.close();
-	                //System.out.println(response.toString());
-                        return response.toString(); //결과를 받아와서 toString으로 리턴 
+	               // System.out.println(response.toString()); //{"text":"커피주문"} 출력
+                        String msg = response.toString();
+                        JSONObject o = new JSONObject(msg);
+                        String stt = o.getString("text");
+                        System.out.println("사용자: " + stt); //사용자: 커피주문 
+                        return stt;
+                       // return response.toString(); //결과를 받아와서 toString으로 리턴 
 	            } else {
 	                System.out.println("error !!!");
                         return null;
