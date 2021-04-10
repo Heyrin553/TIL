@@ -53,7 +53,7 @@ public class OrderService {
 	public long insert(ArrayList<OrderVO> list) {
 		long order_group_no=orderDAO.insert(list); // DB에 주문 넣기 
 		//주방으로 주문통보
-		pushOrders();
+		//pushOrders(); // 이걸 주석처리 안하려면 주방스크린도 떠있어야 함. 주방으로 주문통보하는코드 
 		return order_group_no;
 		
 	}
@@ -100,6 +100,13 @@ public class OrderService {
 			}
 			
 		}
+	}
+
+
+	public void update(long parseLong) {
+		// TODO Auto-generated method stub
+		
+		
 	}
 
 }// end OrderService
